@@ -24,15 +24,16 @@ body::before {
 
 
 /* --------- Titre et accroche --------- */
-h1, .tagline {
-    color: #7e57c2;
+h1 {
+    color: #dcc7ff;
     text-align: center;
     margin-top: 2rem;
 }
 
-.tagline {
-    font-size: 1.2rem;
+#tagline {
+    font-size: 1rem;
     margin-bottom: 2rem;
+    color: #dccded;
 }
 
 /* --------- Formulaires --------- */
@@ -104,6 +105,11 @@ button:hover {
 #game-rules h2,
 #session-info h2 {
     color: #7e57c2;
+    text-align: center;
+}
+
+footer {
+    color: #ffffff;
     text-align: center;
 }
 
