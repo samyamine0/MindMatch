@@ -1,0 +1,120 @@
+/* --------- Styles de base --------- */
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f3e8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("/gif/background2.gif") no-repeat center center/cover;
+    z-index: -1;
+    pointer-events: none; /* Assure que l'élément ne bloque pas les interactions avec la page */
+}
+
+
+
+/* --------- Titre et accroche --------- */
+h1, .tagline {
+    color: #7e57c2;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* --------- Formulaires --------- */
+form {
+    background-color: #ffffff;
+    border: 2px solid #bfa2db;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 1rem;
+    max-width: 300px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bfa2db;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+button {
+    background-color: #7e57c2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #6a4bb7;
+}
+
+#main-sections {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#game-rules,
+#session-info {
+    flex: 1;
+    background-color: #ffffff;
+    border: 2px solid #bfa2db;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#game-rules h2,
+#session-info h2 {
+    color: #7e57c2;
+    text-align: center;
+}
+
+
+/* --------- Responsive --------- */
+@media (max-width: 600px) {
+    form {
+        width: 90%;
+    }
+
+    .question-box, .response-box {
+        width: 90%;
+    }
+}

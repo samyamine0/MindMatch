@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindMatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1><strong>Bienvenue sur MindMatch</strong></h1>
+    <p id="tagline"><strong>Prêt à défier un ami dans un jeu de déduction ?</strong> Crée ou rejoins une session et devine le mot mystère en posant les bonnes questions !</p>
+
+    <div id="main-sections">
+    <section id="game-rules">
+        <h2>Règles du jeu</h2>
+        <p>Le but du jeu est de deviner le mot mystère en posant des questions auxquelles on peut répondre par "oui" ou "non".</p>
+        <p>Le joueur qui devine le mot en premier gagne la partie !</p>
+    <h2>Comment jouer ?</h2>
+    <ol>
+        <li>Crée une nouvelle session ou rejoins une session existante.</li>
+        <li>Un joueur pense à un mot mystère, l'autre doit poser des questions pour le deviner.</li>
+        <li>Le joueur qui devine le mot en premier gagne !</li>
+    </ol>
+    </section>
+
+    <section id="session-info">
+    <h2>Créer une session</h2>
+    <form id="create-session-form">
+        <label for="session-name">Nom de la session :</label>
+        <input type="text" id="session-name" name="session-name" required>
+        <button type="submit">Créer</button>
+    </form>
+    <h2>Rejoindre une session</h2>
+    <form id="join-session-form">
+        <label for="session-id">ID de la session :</label>
+        <input type="text" id="session-id" name="session-id" required>
+        <button type="submit">Rejoindre</button>    
+    </form>
+    </section>
+    </div>
+
+    <footer>
+    <h2>Statistiques</h2>
+    <p>Nombre de sessions créées : <span id="session-count">0</span></p>
+    <p>Nombre de joueurs : <span id="player-count">0</span></p>
+    <p>Meilleur score : <span id="best-score">0</span></p>
+    <h2>À propos</h2>
+    <p>MindMatch est un jeu de déduction amusant où vous pouvez défier vos amis et tester vos compétences en matière de questions-réponses.</p>
+    </footer>
+    
+</body>
+</html>
