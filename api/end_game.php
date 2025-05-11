@@ -21,7 +21,9 @@ if (!isset($sessions[$sessionId])) {
     exit;
 }
 
-unset($sessions[$sessionId]);
+// Marque la session comme abandonnée
+$sessions[$sessionId]['abandoned'] = true;
+
 file_put_contents($file, json_encode($sessions, JSON_PRETTY_PRINT));
 
-echo json_encode(['status' => 'ended']);
+echo json_encode(['status' => 'abandoned']);

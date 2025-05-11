@@ -19,6 +19,12 @@ if (!isset($sessions[$sessionId])) {
 
 $session = $sessions[$sessionId];
 
+// Vérifier si la session a été abandonnée
+if (!empty($session['abandoned'])) {
+    echo json_encode(['status' => 'abandoned']);
+    exit;
+}
+
 if ($role === 'responder') {
     $lastQuestion = end($session['questions']) ?: '';
     echo json_encode(['question' => $lastQuestion]);

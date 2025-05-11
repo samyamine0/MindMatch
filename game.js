@@ -41,7 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const questionBtn = document.getElementById("send-question-btn");
         const guessBtn = document.getElementById("check-guess-btn");
 
-        setInterval(() => fetchLastResponse(sessionId), 1000);
+        sessionCheckInterval = setInterval(() => fetchLastResponse(sessionId), 1000);
+
 
         questionBtn?.addEventListener("click", () => {
             const question = document.getElementById("question-input").value.trim();
@@ -110,7 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.getElementById('word-display').innerText = word;
 
-        setInterval(() => fetchLastQuestion(sessionId), 1000);
+        sessionCheckInterval = setInterval(() => fetchLastQuestion(sessionId), 1000); 
+
 
         window.quitGame = function () {
             if (!confirm("Tu es sûr de vouloir quitter la partie ?")) return;
@@ -144,10 +146,19 @@ function sendResponse(response) {
     });
 }
 
+let sessionCheckInterval = null;
+
+
 function fetchLastQuestion(sessionId) {
     fetch(`api/get_updates.php?sessionId=${sessionId}&role=responder`)
         .then(res => res.json())
         .then(data => {
+            if (data.status === 'abandoned') {
+                clearInterval(sessionCheckInterval);
+                alert("L'Asker a quitté la partie.");
+                window.location.href = "index.html";
+                return;
+            }
             document.getElementById("last-question").innerText = data.question || "En attente de question...";
         });
 }
@@ -156,9 +167,16 @@ function fetchLastResponse(sessionId) {
     fetch(`api/get_updates.php?sessionId=${sessionId}&role=asker`)
         .then(res => res.json())
         .then(data => {
+            if (data.status === 'abandoned') {
+                clearInterval(sessionCheckInterval);
+                alert("Le Responder a quitté la partie.");
+                window.location.href = "index.html";
+                return;
+            }
             document.getElementById("response-display").innerText = "Réponse : " + (data.response || "...");
         });
 }
+
 
 function endGame(sessionId) {
     fetch(`api/end_game.php?sessionId=${sessionId}`);
