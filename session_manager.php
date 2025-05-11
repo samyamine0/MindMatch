@@ -37,7 +37,8 @@ do {
 $sessions[$sessionId] = [
     'word' => $word,
     'questions' => [],
-    'responses' => []
+    'responses' => [],
+    'abandoned' => false,
 ];
 
 // Sauvegarder

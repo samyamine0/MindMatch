@@ -24,12 +24,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (joinForm) {
-        joinForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const sessionId = document.getElementById("session-id").value.trim();
-            window.location.href = `asker.html?id=${sessionId}`;
-        });
-    }
+    joinForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const sessionId = document.getElementById("session-id").value.trim();
+
+        fetch("data/sessions.json")
+            .then(res => res.json())
+            .then(data => {
+                const session = data[sessionId];
+
+                if (!session) {
+                    alert("Cette session n'existe pas.");
+                    return;
+                }
+
+                if (session.abandoned) {
+                    alert("Cette partie a été abandonnée. Tu ne peux pas la rejoindre.");
+                    return;
+                }
+
+                window.location.href = `asker.html?id=${sessionId}`;
+            });
+    });
+}
+
 
     // ----- ASKERS -----
     if (document.body.id === "asker-page") {
