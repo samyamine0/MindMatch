@@ -155,8 +155,7 @@ function fetchLastQuestion(sessionId) {
         .then(data => {
             if (data.status === 'abandoned') {
                 clearInterval(sessionCheckInterval);
-                alert("L'Asker a quitté la partie.");
-                window.location.href = "index.html";
+                displayNotification("L'Asker a quitté la partie.");
                 return;
             }
             document.getElementById("last-question").innerText = data.question || "En attente de question...";
@@ -169,12 +168,19 @@ function fetchLastResponse(sessionId) {
         .then(data => {
             if (data.status === 'abandoned') {
                 clearInterval(sessionCheckInterval);
-                alert("Le Responder a quitté la partie.");
-                window.location.href = "index.html";
+                displayNotification("Le Responder a quitté la partie.");
                 return;
             }
             document.getElementById("response-display").innerText = "Réponse : " + (data.response || "...");
         });
+}
+
+function displayNotification(message) {
+    const notificationDiv = document.getElementById('notification');
+    const messageSpan = document.getElementById('notification-message');
+    
+    messageSpan.innerText = message; // Mettre le message dans le span
+    notificationDiv.style.display = 'block'; // Afficher la notification
 }
 
 
