@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>MindMatch - Répondre</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="game.js" defer></script>
+</head>
+<body id="responder-page">
+    <h1>MindMatch - Donneur de réponses</h1>
+    <p id="tagline"><strong>Tu es le joueur A. Réponds aux questions de ton adversaire.</strong></p>
+
+    <div id="main-sections">
+        <section id="game-rules">
+            <h2>Mot à faire deviner :</h2>
+            <p id="word-display" style="font-size: 1.5rem; color: #6a4bb7;"></p>
+
+            <h2>Dernière question reçue :</h2>
+            <p id="last-question" style="font-size: 1.2rem; font-weight: bold;">En attente...</p>
+
+            <div style="margin-top: 1rem;">
+                <button data-answer="oui">Oui</button>
+                <button data-answer="non">Non</button>
+                <button data-answer="je ne sais pas">Je ne sais pas</button>
+            </div>
+
+            <hr style="margin: 2rem 0; width: 100%; border: 1px dashed #ccc;">
+
+            <button id="quit-btn" style="background-color: crimson; color: white; padding: 10px 20px; border: none; border-radius: 8px;">Quitter la partie</button>
+        </section>
+    </div>
+</body>
+</html>

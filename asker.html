@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>MindMatch - Poseur de questions</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="game.js" defer></script>
+</head>
+<body id="asker-page">
+    <h1>MindMatch - Poseur de questions</h1>
+    <p id="tagline"><strong>Tu es le joueur B. Pose des questions pour deviner le mot mystère.</strong></p>
+
+    <div id="game-box">
+        <div class="row">
+            <div>
+                <h2>Question n°<span id="question-count">1</span> / 10</h2>
+                <input type="text" id="question-input" placeholder="Ex : Est-ce un fruit ?" required>
+                <button id="send-question-btn">Envoyer</button>
+                <p id="response-display" style="font-size: 1.2rem; font-weight: bold;">Réponse : ...</p>
+            </div>
+
+            <div>
+                <h2>Mot mystère</h2>
+                <input type="text" id="guess-input" placeholder="Ex : mangue" required>
+                <button id="check-guess-btn">Tester</button>
+                <p id="guess-feedback" style="font-weight: bold;">&nbsp;</p>
+                <p>Essai n°<span id="guess-number">1</span> / 5</p>
+            </div>
+        </div>
+
+        <button id="abandon-btn" onclick="abandonGame()" style="background-color: crimson; color: white;">Abandonner la partie</button>
+    </div>
+</body>
+</html>
