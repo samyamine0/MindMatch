@@ -77,7 +77,8 @@ Faire deviner le mot mystère en posant des questions fermées et en interpréta
 
 ## 👨‍💻 Auteurs
 
-Projet développé dans le cadre de la L3 Informatique – Université Sorbonne Paris Nord (2024-2025)  
+Projet développé dans le cadre de la L3 Informatique – Université Sorbonne Paris Nord (2024-2025)
+En binôme avec : HALIT Samy 12200614
 Encadré par Sylvain PERIFEL.
 
 ---
