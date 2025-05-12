@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (guess === correctWord) {
                         feedback.innerText = "🎉 Félicitations ! Tu as trouvé le mot.";
                         feedback.style.color = "green";
-                        endGame(sessionId);
+                        winGame(sessionId);
                     } else {
                         guessCount++;
                         document.getElementById("guess-number").innerText = guessCount;
@@ -172,10 +172,14 @@ function fetchLastQuestion(sessionId) {
         .then(res => res.json())
         .then(data => {
             if (data.status === 'abandoned') {
-                clearInterval(sessionCheckInterval);
-                displayNotification("L'Asker a quitté la partie.");
-                return;
-            }
+            clearInterval(sessionCheckInterval);
+        displayNotification("L'Asker a quitté la partie.");
+        return;
+        } else if (data.won) {
+        clearInterval(sessionCheckInterval);
+        displayNotification("🎉 L'autre joueur a trouvé le mot !", "#a2ffa2");
+        return;
+}
             document.getElementById("last-question").innerText = data.question || "En attente de question...";
         });
 }
@@ -193,9 +197,13 @@ function fetchLastResponse(sessionId) {
         });
 }
 
-function displayNotification(message) {
+function displayNotification(message, color) {
     const notificationDiv = document.getElementById('notification');
     const messageSpan = document.getElementById('notification-message');
+    notificationDiv.style.backgroundColor = color || "#f8d7da";
+    if(color != null) {
+        messageSpan.style.color = "#327c4b";
+    }
     
     messageSpan.innerText = message; // Mettre le message dans le span
     notificationDiv.style.display = 'block'; // Afficher la notification
@@ -204,4 +212,8 @@ function displayNotification(message) {
 
 function endGame(sessionId) {
     fetch(`api/end_game.php?sessionId=${sessionId}`);
+}
+
+function winGame(sessionId) {
+    fetch(`api/win_game.php?sessionId=${sessionId}`);
 }
