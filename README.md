@@ -20,19 +20,20 @@ Bienvenue sur **MindMatch**, un jeu en ligne simple et interactif où deux joueu
 ## 📂 Arborescence du projet
 
 ```
-MindMatch/
-├── index.html              # Page d'accueil (création / entrée de session)
-├── game.php                # Page de jeu principale
-├── style.css               # Feuille de style
-├── game.js                 # JS principal pour le jeu
-├── session_manager.php     # Gestion des sessions (création / jonction)
-├── api/
-│   ├── ask_question.php    # Enregistrement des questions
-│   ├── get_updates.php     # Rafraîchissement des données en temps réel
-│   └── end_game.php        # Nettoyage / fin de session
+.
+├── index.html # Page d'accueil avec formulaires de création/join
+├── asker.html # Interface du poseur de questions
+├── responder.html # Interface du répondant
+├── style.css # Feuille de styles CSS
+├── game.js # Script principal JS (client)
+├── session_manager.php # Création de session côté serveur
 ├── data/
-│   └── sessions.json       # Stockage temporaire des parties
-└── README.md               # Documentation du projet
+│ └── sessions.json # Fichier JSON contenant toutes les sessions
+└── api/
+├── ask_question.php # Envoi de questions/réponses
+├── get_updates.php # Récupération des mises à jour pour chaque rôle
+├── end_game.php # Gestion de l’abandon
+└── win_game.php # Gestion de la victoire
 ```
 
 ## ⚙️ Installation locale
@@ -66,14 +67,6 @@ MindMatch/
 
 ### Le but :
 Faire deviner le mot mystère en posant des questions fermées et en interprétant les réponses du joueur A.
-
-## 🛠️ À venir (idées d'améliorations)
-
-- 📈 Système de score
-- 📊 Statistiques de parties
-- 🖌️ Dessins ou indices visuels
-- 🔄 Mode solo avec pseudo-IA
-- 💬 Chat en temps réel entre les joueurs
 
 ## 👨‍💻 Auteurs
 
